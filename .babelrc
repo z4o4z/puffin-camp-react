@@ -1,0 +1,58 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "browsers": ["chrome 66", "edge 17", "firefox 60", "safari 11"]
+            },
+            "modules": false,
+            "useBuiltIns": "usage"
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "react-hot-loader/babel",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-proposal-class-properties"
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "browsers": ["last 2 versions", "ie >= 11"]
+            },
+            "modules": false,
+            "useBuiltIns": "usage"
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "babel-plugin-lodash",
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-dynamic-import",
+        "react-hot-loader/babel",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-react-inline-elements",
+        "transform-react-pure-class-to-function",
+        [
+          "transform-react-remove-prop-types",
+          {
+            "mode": "remove",
+            "removeImport": true,
+            "ignoreFilenames": ["node_modules"]
+          }
+        ]
+      ]
+    }
+  }
+}

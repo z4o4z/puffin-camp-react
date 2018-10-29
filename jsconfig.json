@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "lib": ["es6", "es7", "esnext", "dom"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "paths": {
+      "*": ["*", "src/*"]
+    },
+    "rootDirs": [".", "src"],
+    "skipLibCheck": false,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es6"
+  },
+  "exclude": ["dist", "webpack"],
+  "include": ["src/**/*"]
+}
