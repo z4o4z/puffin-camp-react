@@ -13,7 +13,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const LodashPlugin = require('lodash-webpack-plugin');
 
 const CONFIG = require('./client.js');
 const { PATH_SRC, PATH_PUBLIC, PATH_NODE_MODULES } = require('./common.js');
@@ -35,6 +35,7 @@ module.exports = merge(CONFIG, {
 
   optimization: {
     runtimeChunk: true,
+    // concatenateModules: true,
     splitChunks: {
       chunks: 'all',
     },
@@ -47,11 +48,11 @@ module.exports = merge(CONFIG, {
           warnings: false,
           compress: {
             loops: true,
-            unsafe: false,
+            unsafe: true,
             unused: true,
             booleans: true,
             sequences: true,
-            drop_console: false,
+            drop_console: true,
           },
         },
       }),
@@ -97,7 +98,7 @@ module.exports = merge(CONFIG, {
   },
 
   plugins: [
-    new LodashModuleReplacementPlugin(),
+    new LodashPlugin(),
     new HtmlWebpackPlugin({
       template: join(PATH_PUBLIC, './index.html'),
       minify: {
