@@ -3,6 +3,8 @@ import { hot } from 'react-hot-loader';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import 'node_modules/bootstrap/dist/css/bootstrap.css';
+
 import worker from './worker';
 
 import App from './app';
